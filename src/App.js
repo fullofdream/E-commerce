@@ -4,11 +4,12 @@ import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 import Header from "./component/Header";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function App() {
 
   return (
-    <div className="">
+    <div>
       <HashRouter>
         <Header />
         <Routes>
@@ -16,6 +17,7 @@ function App() {
           <Route path={`/category/:id`} element={<ProductsList />} />
           <Route path={`/contact`} element={<Contact />} />
           <Route path={`/*`} element={<ErrorPage />} />
+          <Route path={'/Login'} element={<Login />} />
         </Routes>
       </HashRouter>
     </div>

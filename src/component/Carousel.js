@@ -51,9 +51,9 @@ const Carousel = ({ slides, isloading }) => {
         className="w-full h-full rounded-[10px] bg-no-repeat bg-contain bg-center"
         style={{ backgroundImage: `url(${slides[currentIndex].img})` }}
       ></div> */}
-      <div 
+      <div
         className="w-full h-full rounded-[10px] bg-no-repeat bg-contain bg-center"
-        >{isloading ?  <CarouselImg /> : slides[currentIndex]}</div>
+      >{isloading ? <CarouselImg /> : slides[currentIndex]}</div>
       <div
         className="absolute top-1/2 right-[32px] -translate-y-1/2 text-[22px] md:text-[55px] text-black z-10 cursor-pointer"
         onClick={goToNext}

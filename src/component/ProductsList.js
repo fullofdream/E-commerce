@@ -5,6 +5,10 @@ const ProductsList = () => {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
   const [isloading, setIsLoading] = useState("loader");
+  const Name =
+    window.localStorage.getItem("user") &&
+    JSON.parse(window.localStorage.getItem("user")).name;
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -14,7 +18,7 @@ const ProductsList = () => {
         const jsonData = await res.json();
         // console.log("Res ", jsonData);
         setIsLoading("success");
-  
+
         setProducts(jsonData);
       } catch (error) {
         setIsLoading("fail");
@@ -29,7 +33,6 @@ const ProductsList = () => {
     fetchProducts();
   }, [id]);
 
-
   return (
     <div className="flex flex-col justify-center ">
       {isloading === "loader" ? (
@@ -40,7 +43,10 @@ const ProductsList = () => {
         <div className="">
           {products.length &&
             products.map((x, i) => (
-              <div key={i} className="flex flex-col md:flex-row  text-[12px] md:text-[17px]  gap-4 px-3 py-2">
+              <div
+                key={i}
+                className="flex flex-col md:flex-row  text-[12px] md:text-[17px]  gap-4 px-3 py-2"
+              >
                 <div className="basis-1/2 ">
                   <div className="m-[6px] w-[150px] h-[150px] md:w-[200px] md:h-[200px] mx-auto">
                     <img
@@ -69,7 +75,10 @@ const ProductsList = () => {
                   <p className="text-base md:text-lg font-semibold my-2">
                     &#8377; {x.price}
                   </p>
-                  <button className="text-base md:text-lg my-2 bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md">
+                {Name&&  <button className="shadow border border-gray-300 hover:bg-gray-100 text-base font-semibold my-2 mr-2 px-2 py-1 rounded-md">
+                    Add Cart
+                  </button>}
+                  <button className="shadow border border-gray-300 text-base font-semibold my-2 bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md">
                     Buy Now
                   </button>
                 </div>
