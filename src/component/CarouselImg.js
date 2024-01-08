@@ -22,4 +22,5 @@ const CarouselImg = ({ title, img }) => {
     )
 }
 
+
 export default CarouselImg

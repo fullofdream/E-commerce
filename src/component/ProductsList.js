@@ -16,7 +16,7 @@ const ProductsList = () => {
           `https://fakestoreapi.com/products/category/${id}`
         );
         const jsonData = await res.json();
-        // console.log("Res ", jsonData);
+        
         setIsLoading("success");
 
         setProducts(jsonData);
@@ -24,11 +24,7 @@ const ProductsList = () => {
         setIsLoading("fail");
         console.log("err ", error);
       }
-      // .then((res) => res.json())
-      // .then((json) => {
-      //   console.log(json);
-      //   setProducts(json);
-      // });
+      
     };
     fetchProducts();
   }, [id]);

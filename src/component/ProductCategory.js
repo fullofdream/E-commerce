@@ -12,7 +12,7 @@ const ProductCategory = () => {
     { title: "women's clothing", img: women },
   ];
  
-  return (
+  return ( 
     <div className="flex justify-evenly flex-wrap text-[12px] md:text-[17px] leading-none rounded-full px-2 py-0 ">
       {categories.length &&
         categories.map((x, i) => (
